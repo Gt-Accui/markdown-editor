@@ -1,4 +1,5 @@
 const path = require("path");
+const { WatchDirectoryFlags } = require("typescript");
 
 module.exports = {
     entry: "./src/index.tsx",
@@ -18,5 +19,13 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "index.js",
         publicPath: "dist/",
+    },
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname),  // , "dist"),
+            // publicPath: "/",
+        },
+        hot: true,
+        open: true,
     },
 };
